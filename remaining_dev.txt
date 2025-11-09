@@ -1,0 +1,5 @@
+troubleshooting
+    infinite index request loops
+
+functionalities to implement
+    file read/write
