@@ -33,10 +33,13 @@ class NameList(collections.UserList):
         self.insert(index, newName.upper())
 
     def editMember(self):
-        index = index = helpers.getIndex(len(self))
-        oldVal = input("What value do you want to change: ")
-        newVal = input("What do you want to change it to: ")
-        self[index] = self[index].replace(oldVal.upper(), newVal.upper())
+        try:
+            index = index = helpers.getIndex(len(self))
+            oldVal = input("What value do you want to change: ")
+            newVal = input("What do you want to change it to: ")
+            self[index] = self[index].replace(oldVal.upper(), newVal.upper())
+        except ValueError:
+            print("Your list is empty.")
 
     def searchSubstring(self):
         searchString = input("Give me a string to search for: ")
@@ -51,8 +54,11 @@ class NameList(collections.UserList):
         print(f"There are {self.count(searchName.upper())} instances of {searchName}.")
 
     def removeMemberByIndex(self):
-        index = helpers.getIndex(len(self))
-        self.pop(index)
+        try:
+            index = helpers.getIndex(len(self))
+            self.pop(index)
+        except ValueError:
+            print("Your list is empty.")
 
     def removeMemberByString(self):
         deleteString = input("Give me a full name to remove: ")
