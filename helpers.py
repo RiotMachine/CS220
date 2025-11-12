@@ -9,9 +9,7 @@ def getInt(queryString):
 def getIndex(length):
     while length > 0:
         value = getInt("Choose the desired index: ")
-        ## using Zlatko's suggestion
-        ## https://stackoverflow.com/questions/29715501/how-can-i-check-if-a-list-index-exists#29715530
-        if value in range(-length, length):
+        if -length <= value < length:
             return value
         else:
             print("That is not a valid index.")
